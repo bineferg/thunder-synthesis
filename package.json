@@ -1,0 +1,29 @@
+{
+  "name": "thunder-synthesis",
+  "version": "1.0.0",
+  "description": "Web-based procedurally generated thunder synthesis model",
+  "main": "index.js",
+  "scripts": {
+    "model": "http-server -o -p 8080",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bineferg/thunder-synthesis.git"
+  },
+  "keywords": [
+    "thunder",
+    "synthesis",
+    "procedural",
+    "audio"
+  ],
+  "author": "Fineberg, Walters, and Reiss",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bineferg/thunder-synthesis/issues"
+  },
+  "homepage": "https://github.com/bineferg/thunder-synthesis#readme",
+  "dependencies": {
+    "http-server": "^14.1.0"
+  }
+}

@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <title>Generative Thunder</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,217 +9,236 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
-      /* Remove the navbar's default margin-bottom and rounded borders */ 
-      .navbar {
-        margin-bottom: 0;
-        border-radius: 0;
-      }
-      
-      /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-      .row.content {height: 450px}
-      
-      /* Set gray background color and 100% height */
-      .sidenav {
-        padding-top: 20px;
-        background-color: #f1f1f1;
-        height: 100%;
-      }
-      
-      /* Set black background color, white text and some padding */
-      footer {
-        background-color: #555;
-        color: white;
-        padding: 15px;
-      }
-      
-      /* On small screens, set height to 'auto' for sidenav and grid */
-      @media screen and (max-width: 767px) {
-        .sidenav {
-          height: auto;
-          padding: 15px;
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
         }
-        .row.content {height:auto;} 
-      }
+
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {
+            height: 450px
+        }
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            padding-top: 20px;
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header center">
-          <a class="navbar-brand" href="#"></a>
+        <div class="container-fluid">
+            <div class="navbar-header center">
+                <a class="navbar-brand" href="#"></a>
+            </div>
         </div>
-      </div>
     </nav>
 
-    <div class="container-fluid text-center">    
-      <div class="row content">
-        <div class="col-sm-3 sidenav">
-          <p class="h3">    Distance
-            <input id='distanceSlider' type='range' min='10' max='800' step='1' value='200'>
-            <input id='distanceNumber' type='number' min='10' max='800' step='1' value='200'><br><br></p>
-          <p class="h3">   Initial Strike
-            <input id='strikeSlider' type='range' min='0' max='1' step='0.01' value='0.5'>
-            <input id='strikeNumber' type='number' min='0' max='1' step='0.01' value='0.5'><br><br></p>
-          <p class="h3">    Rumble
-            <input id='rumbleSlider' type='range' min='0' max='1' step='0.01' value='0.5'>
-            <input id='rumbleNumber' type='number' min='0' max='1' step='0.01' value='0.5'><br><br></p>
-          <p class="h3">    Growl
-            <input id='growlSlider' type='range' min='0' max='1' step='0.01' value='0.5'>
-            <input id='growlNumber' type='number' min='0' max='1' step='0.01' value='0.5'><br><br></p>
-        </div>
-        <div class="col-sm-6 text-left"> 
-          <h1>Generative Thunder</h1>
-          <p>This project was developed at QMUL and inspired by <a href="https://nemisindo.com/app/main-panel/thunder.html"> The Nemisindo Project</a>.</p>
-          <hr>
-          <div class="text-center">
-            <button type="button" class="btn btn-warning btn-lg pull-center" value="Strike" id="explode">Strike</button>
-            <br><br><br>
-              <canvas id="myCanvas" width="500" height="200" style="cursor: pointer; background-color: black"></canvas><br><br>
-          </div>
-          <br><br>
-          <div class="text-center">
-            <button type="button" class="btn btn-info btn-lg pull-center" value="Randomize" id="random">Randomize</button>
-          </div>
-          
-        </div>
-        <div class="col-sm-3 sidenav">
-          <div class="well">
-            <button type="button" class="btn btn-success btn-lg" value="Record" id="recordButton">Record</button>
-            <button type="button" class="btn btn-danger btn-lg" value="Stop" id="stopButton">Stop</button>
-            <audio controls id='audio'></audio>
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-3 sidenav">
+                <p class="h3"> Distance
+                    <input id='distanceSlider' type='range' min='10' max='800' step='1' value='200'>
+                    <input id='distanceNumber' type='number' min='10' max='800' step='1' value='200'><br><br>
+                </p>
+                <p class="h3"> Initial Strike
+                    <input id='strikeSlider' type='range' min='0' max='1' step='0.01' value='0.5'>
+                    <input id='strikeNumber' type='number' min='0' max='1' step='0.01' value='0.5'><br><br>
+                </p>
+                <p class="h3"> Rumble
+                    <input id='rumbleSlider' type='range' min='0' max='1' step='0.01' value='0.5'>
+                    <input id='rumbleNumber' type='number' min='0' max='1' step='0.01' value='0.5'><br><br>
+                </p>
+                <p class="h3"> Growl
+                    <input id='growlSlider' type='range' min='0' max='1' step='0.01' value='0.5'>
+                    <input id='growlNumber' type='number' min='0' max='1' step='0.01' value='0.5'><br><br>
+                </p>
+            </div>
+            <div class="col-sm-6 text-left">
+                <h1>Generative Thunder</h1>
+                <p>This project was developed at QMUL and inspired by the <a href="https://nemisindo.com/">Nemisindo</a>
+                    project.</p>
+                <hr>
+                <div class="text-center">
+                    <button type="button" class="btn btn-warning btn-lg pull-center" value="Strike"
+                        id="explode">Strike</button>
+                    <br><br><br>
+                    <canvas id="myCanvas" width="500" height="200"
+                        style="cursor: pointer; background-color: black"></canvas><br><br>
+                </div>
+                <br><br>
+                <div class="text-center">
+                    <button type="button" class="btn btn-info btn-lg pull-center" value="Randomize"
+                        id="random">Randomize</button>
+                </div>
 
-          </div>
-          <div class="well">
-            <p class="h3">    Reverb: 
-              <input type="checkbox" class="form-check-input" style="transform: scale(1.5);" id="ReverbCheck">
-              <br/>
-              <br/></p>
-          </div>
-          <div class="well">
-            <p class="h3">  
-              <label>Presets: </label> </br>
-              <select name="presets" id="presets">
-                <option value="empty">          </option>
-                <option value="close-strike">Close Strike(s)</option>
-                <option value="distant-rumble">Distant Rumble</option>
-                <option value="distant-strikes">Distant Strikes</option>
-                <option value="rolling-roar">Rolling Roar</option>
-              </select>
-              <br/>
-              <br/></p>
-          </div>
-        </div>          
+            </div>
+            <div class="col-sm-3 sidenav">
+                <div class="well">
+                    <button type="button" class="btn btn-success btn-lg" value="Record"
+                        id="recordButton">Record</button>
+                    <button type="button" class="btn btn-danger btn-lg" value="Stop" id="stopButton">Stop</button>
+                    <audio controls id='audio'></audio>
+
+                </div>
+                <div class="well">
+                    <p class="h3"> Reverb:
+                        <input type="checkbox" class="form-check-input" style="transform: scale(1.5);" id="ReverbCheck">
+                        <br />
+                        <br />
+                    </p>
+                </div>
+                <div class="well">
+                    <p class="h3">
+                        <label>Presets: </label> </br>
+                        <select name="presets" id="presets">
+                            <option value="empty"> </option>
+                            <option value="close-strike">Close Strike(s)</option>
+                            <option value="distant-rumble">Distant Rumble</option>
+                            <option value="distant-strikes">Distant Strikes</option>
+                            <option value="rolling-roar">Rolling Roar</option>
+                        </select>
+                        <br />
+                        <br />
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
     </div>
     <div class="container-fluid text-center" style="background-color:#f1f1f1">
-      <div class="row content"></div>
-
+        <div class="row content"></div>
     </div>
 
-
-   
     <p>
-    
+        <script src="src/model/SignalFunctions.js"></script>
+        <script src="src/model/Canvas.js"></script>
+        <script src="src/util/recorder.js"></script>
+        <script src="src/model/Thunder.js"></script>
+        <script src="src/model/Rumbler.js"></script>
+        <script src="src/model/AfterImage.js"></script>
+        <script src="src/model/Deepen.js"></script>
+        <script src="src/model/Panner.js"></script>
+        <script src="src/model/LPFTime.js"></script>
+        <script src="src/model/Delay.js"></script>
+        <script src="src/model/Crackle.js"></script>
+        <script src="src/model/Listener.js"></script>
+        <script src="src/model/Compressor.js"></script>
+        <script src="src/model/Lightning.js"></script>
+        <script>
+            distanceSlider.oninput = function () {
+                distanceNumber.value = this.value
+            }
+            distanceNumber.oninput = function () {
+                distanceSlider.value = this.value
+            }
+            strikeSlider.oninput = function () {
+                strikeNumber.value = this.value
+            }
+            strikeNumber.oninput = function () {
+                strikeSlider.value = this.value
+            }
+            rumbleSlider.oninput = function () {
+                rumbleNumber.value = this.value
+            }
+            rumbleNumber.oninput = function () {
+                rumbleSlider.value = this.value
+            }
+            growlSlider.oninput = function () {
+                growlNumber.value = this.value
+            }
+            growlNumber.oninput = function () {
+                growlSlider.value = this.value
+            }
+            presets.onchange = function () {
+                if (this.value == "close-strike") {
+                    distanceNumber.value = 10;
+                    distanceSlider.value = 10;
+                    strikeNumber.value = 0.85;
+                    strikeSlider.value = 0.85;
+                    rumbleNumber.value = 0.09;
+                    rumbleSlider.value = 0.09;
+                    growlNumber.value = 0.65;
+                    growlSlider.value = 0.65;
+                    ReverbCheck.checked = true
+                }
+                if (this.value == "distant-rumble") {
+                    distanceNumber.value = 760;
+                    distanceSlider.value = 760;
+                    strikeNumber.value = 0.15;
+                    strikeSlider.value = 0.15;
+                    rumbleNumber.value = 0.6;
+                    rumbleSlider.value = 0.6;
+                    growlNumber.value = 0.95;
+                    growlSlider.value = 0.95;
+                    ReverbCheck.checked = true
+                }
+                if (this.value == "distant-strikes") {
+                    distanceNumber.value = 700;
+                    distanceSlider.value = 700;
+                    strikeNumber.value = 0.85;
+                    strikeSlider.value = 0.85;
+                    rumbleNumber.value = 0.4;
+                    rumbleSlider.value = 0.4;
+                    growlNumber.value = 0.65;
+                    growlSlider.value = 0.65;
+                    ReverbCheck.checked = true
+                }
+                if (this.value == "rolling-roar") {
+                    distanceNumber.value = 400;
+                    distanceSlider.value = 400;
+                    strikeNumber.value = 0.85;
+                    strikeSlider.value = 0.85;
+                    rumbleNumber.value = 0.75;
+                    rumbleSlider.value = 0.75;
+                    growlNumber.value = 0.95;
+                    growlSlider.value = 0.95;
+                    ReverbCheck.checked = true
+                }
+            }
 
+            // Implement randomisation button
+            // Todo, setup ui for presets
+            random.onclick = function () {
+                distVal = Math.floor(Math.random() * (800 - 10 + 1) + 10);
+                distanceNumber.value = distVal;
+                distanceSlider.value = distVal;
+                strikeVal = Math.random();
+                strikeSlider.value = strikeVal;
+                strikeNumber.value = strikeVal;
+                rumbleVal = Math.random();
+                rumbleNumber.value = rumbleVal;
+                rumbleSlider.value = rumbleVal;
+                growlVal = Math.random();
+                growlSlider.value = growlVal;
+                growlNumber.value = growlVal;
+                randRev = Math.random() > 0.5 ? ReverbCheck.checked = true : ReverbCheck.checked = false;
 
+            }
+        </script>
+</body>
 
-
-
-
-
-
-
-  
-    <script src="src/model/SignalFunctions.js"></script>
-    <script src="src/model/Canvas.js"></script>
-    <script src="src/util/recorder.js"></script>
-    <script src="src/model/Thunder.js"></script>
-    <script src="src/model/Rumbler.js"></script>
-    <script src="src/model/AfterImage.js"></script>
-    <script src="src/model/Deepen.js"></script>
-    <script src="src/model/Panner.js"></script>
-    <script src="src/model/LPFTime.js"></script>
-    <script src="src/model/Delay.js"></script>
-    <script src="src/model/Crackle.js"></script>
-    <script src="src/model/Listener.js"></script>
-    <script src="src/model/Compressor.js"></script>
-    <script src="src/model/Lightning.js"></script>
-    <script>
-      distanceSlider.oninput = function() { distanceNumber.value = this.value }
-      distanceNumber.oninput = function() { distanceSlider.value = this.value }
-      strikeSlider.oninput = function() { strikeNumber.value = this.value }
-      strikeNumber.oninput = function() { strikeSlider.value = this.value }
-      rumbleSlider.oninput = function() { rumbleNumber.value = this.value }
-      rumbleNumber.oninput = function() { rumbleSlider.value = this.value }
-      growlSlider.oninput = function() { growlNumber.value = this.value }
-      growlNumber.oninput = function() { growlSlider.value = this.value }
-      presets.onchange = function(){
-        if(this.value == "close-strike") {
-          distanceNumber.value = 10;
-          distanceSlider.value = 10;
-          strikeNumber.value = 0.85;
-          strikeSlider.value = 0.85;
-          rumbleNumber.value = 0.09;
-          rumbleSlider.value = 0.09;
-          growlNumber.value = 0.65;
-          growlSlider.value = 0.65;
-          ReverbCheck.checked=true
-        }
-        if(this.value == "distant-rumble") {
-          distanceNumber.value = 760;
-          distanceSlider.value = 760;
-          strikeNumber.value = 0.15;
-          strikeSlider.value = 0.15;
-          rumbleNumber.value = 0.6;
-          rumbleSlider.value = 0.6;
-          growlNumber.value = 0.95;
-          growlSlider.value = 0.95;
-          ReverbCheck.checked=true
-        }
-        if(this.value == "distant-strikes") {
-          distanceNumber.value = 700;
-          distanceSlider.value = 700;
-          strikeNumber.value = 0.85;
-          strikeSlider.value = 0.85;
-          rumbleNumber.value = 0.4;
-          rumbleSlider.value = 0.4;
-          growlNumber.value = 0.65;
-          growlSlider.value = 0.65;
-          ReverbCheck.checked=true
-        }
-        if(this.value == "rolling-roar") {
-          distanceNumber.value = 400;
-          distanceSlider.value = 400;
-          strikeNumber.value = 0.85;
-          strikeSlider.value = 0.85;
-          rumbleNumber.value = 0.75;
-          rumbleSlider.value = 0.75;
-          growlNumber.value = 0.95;
-          growlSlider.value = 0.95;
-          ReverbCheck.checked=true
-        }
-      }
-
-      // Implement randomisation button
-      // Todo, setup ui for presets
-      random.onclick = function(){
-        distVal = Math.floor(Math.random() * (800 - 10 + 1) + 10);
-        distanceNumber.value=distVal;
-        distanceSlider.value=distVal;
-        strikeVal = Math.random();
-        strikeSlider.value=strikeVal;
-        strikeNumber.value=strikeVal;
-        rumbleVal = Math.random();
-        rumbleNumber.value=rumbleVal;
-        rumbleSlider.value=rumbleVal;
-        growlVal = Math.random();
-        growlSlider.value=growlVal;
-        growlNumber.value=growlVal;
-        randRev = Math.random() > 0.5 ? ReverbCheck.checked=true : ReverbCheck.checked=false;
-
-      }
-
-    </script>
-  </body>
 </html>

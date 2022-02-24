@@ -1,6 +1,6 @@
-// Use delay to implement a feedback effect
+// General delay code implementing a feedback effect
 
-class Feedback {
+class Delay {
     constructor(delayTime, feedback) {
         this.delayTime = delayTime;
         this.feedback = feedback;

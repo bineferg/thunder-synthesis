@@ -24,6 +24,7 @@ class Lightning {
         var strikeNumber, strikeNumber2;
         var strikeTime, strikeTime2;
         var split = false;
+        // console.log("splitRandom: ", splitRandom);
         for (var i = 0; i < 20; i++) {
             if (this.canvas.myInitial < 100) {
                 strikeNumber = i % 4;
@@ -43,7 +44,7 @@ class Lightning {
         }
     }
     applyFeedback(audioIn, audioOut) {
-        let feedback = new Feedback(0.6, 0.15); //(delayTime, feedback)
+        let feedback = new Delay(0.6, 0.15); //(delayTime, feedback)
         feedback.applyAndConnect(audioIn, audioOut);
     }
     pan(audioIn, audioOut, x, y, z) {
@@ -75,7 +76,7 @@ class Lightning {
         this.strikeGain[3].connect(this.filters[7]); // All filters are bandpass, each is controlled in strikeEnvelopeX
         for (var i = 0; i < 8; i++) this.filters[i].connect(this.strikeOut); // Connect to out gain
         this.strikeOut.connect(strikeDelay); // Delay out gain by 5 seconds
-        this.applyFeedback(this.strikeOut, gainOut); // Apply feedback with delayTime 1.6s and feedback 0.15
+        this.applyFeedback(this.strikeOut, gainOut); // Apply delay with delayTime 1.6s and feedback 0.15
         this.pan(strikeDelay, gainOut, this.rand(800), this.rand(500), this.rand(50));
         return gainOut;
     }

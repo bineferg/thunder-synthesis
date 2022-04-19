@@ -1,6 +1,6 @@
 // All registered processors for AudioNodes used in this model
 
-// Code from https://nemisindo.com/app/main-panel/thunder.html
+// Model available at https://nemisindo.com/models/thunder.html
 
 registerProcessor('phasor-generator', class extends AudioWorkletProcessor {
   constructor() {

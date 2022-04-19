@@ -1,6 +1,6 @@
 // Lightning module used for multistrike generation
 
-// Code from https://nemisindo.com/app/main-panel/thunder.html
+// Model available at https://nemisindo.com/models/thunder.html
 
 class Lightning {
     constructor() {

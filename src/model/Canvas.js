@@ -1,7 +1,7 @@
 // Encapsulated canvas model for lighting generation
 // Does not generat imagery for multistrike visibly
 
-// Code from https://nemisindo.com/app/main-panel/thunder.html
+// Model available at https://nemisindo.com/models/thunder.html
 
 class Canvas {
     // Initialise the canvas and setup the sizing etc

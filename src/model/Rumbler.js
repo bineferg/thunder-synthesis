@@ -1,7 +1,7 @@
 // Synthesised component of rumbling/growl
 // Most generating frequency content in the mid ranges
 
-// Code from https://nemisindo.com/app/main-panel/thunder.html
+// Model available at https://nemisindo.com/models/thunder.html
 
 class Rumbler {
     constructor(rumbleVal) {

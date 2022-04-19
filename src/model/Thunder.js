@@ -1,5 +1,5 @@
 /*
- * Main file, inspired from https://nemisindo.com/app/main-panel/thunder.html
+ * Main file, inspired from https://nemisindo.com/models/thunder.html
  * Sets up audio context, configures constants and triggers for the synthesis
  * Also handles recordings
  */
@@ -205,7 +205,7 @@ async function loadImpulse() {
 
 
 // Generate multiple of ths single strike patterns from Nemisindo
-// https://nemisindo.com/app/main-panel/thunder.html
+// https://nemisindo.com/models/thunder.html
 function multistrikes(maxStrikes) {
   // Pre-Crackle
   let crackle = new Crackle(20);

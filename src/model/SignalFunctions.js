@@ -1,6 +1,6 @@
 // Signal functions used for interacting oscillators
 
-// Code from https://nemisindo.com/app/main-panel/thunder.html
+// Model available at https://nemisindo.com/models/thunder.html
 
 function addSignals(inputA, inputB, context) {
   this.context = context ||  plugin.context;

@@ -1,7 +1,7 @@
 // Synthesised component of the deepening roll
 // Most generating frequency content in the low ranges
 
-// Code from https://nemisindo.com/app/main-panel/thunder.html
+// Model available at https://nemisindo.com/models/thunder.html
 
 
 class Deepen {
